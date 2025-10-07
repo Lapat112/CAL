@@ -1,0 +1,90 @@
+/* Reset เบื้องต้น */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  font-size: 16px; /* baseline font size */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+  background: #252525;
+  color: #eee;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+/* คอนเทนเนอร์กลาง */
+.page-wrapper {
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* กรอบหลัก */
+.Main {
+  background-color: rgb(37,37,37);
+  border-radius: 12px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px; /* เนื้อหา + sidebar */
+  gap: 1.5rem;
+  min-height: calc(100vh - 6rem);
+}
+
+.Main--fluid {
+  grid-template-columns: 1fr minmax(240px, 28%);
+}
+
+/* เนื้อหา */
+.content {
+  background: #1e1e1e;
+  padding: 1.2rem;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+/* sidebar */
+.sidebar {
+  background: #111;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* ปุ่ม */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: #2b6cff;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* รูปภาพ responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* จอแคบกว่าประมาณ 1024px => stack */
+@media (max-width: 1024px){
+  .Main, .Main--fluid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .page-wrapper { padding: 1rem; }
+}
+
+/* จอใหญ่ >= 1366px */
+@media (min-width: 1366px) {
+  :root { font-size: 17px; }
+  .page-wrapper { padding: 2.5rem; }
+  .Main { gap: 2rem; }
+}
